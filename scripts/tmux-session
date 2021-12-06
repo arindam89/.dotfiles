@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+folder=$(find ~/Uber -mindepth 1 -maxdepth 1 | fzf)
+session=$(basename $folder | tr "." "_")
+
+echo "$folder $session"
+
+if ! tmux has-session -t "$session" 2> /dev/null; then
+    tmux new-session -s "$session" -c "$folder"
+fi
+
+# Use switch-client from inside tmux;
+tmux switch-client -t $session
