@@ -1,0 +1,16 @@
+   ---
+   - name: Setup basic tools on Docker instance
+     hosts: docker_instance
+     become: yes
+
+     tasks:
+       - name: Update package list
+         apt:
+           update_cache: yes
+
+       - name: Install zsh and git
+         apt:
+           name:
+             - zsh
+             - git
+           state: present
