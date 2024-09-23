@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-folder=$(find ~/Uber -mindepth 1 -maxdepth 1 | fzf)
+BASE_DIR=~/Work/CODE
+
+folder=$(find $BASE_DIR -mindepth 1 -maxdepth 1 | fzf)
 session=$(basename $folder | tr "." "_")
 
 echo "$folder $session"
