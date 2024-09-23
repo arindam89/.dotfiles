@@ -20,4 +20,7 @@ nvim
 bat
 tldr
 cht.sh
+zoxide
+ripgrep
+fzf
 ```
