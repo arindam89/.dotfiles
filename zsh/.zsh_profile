@@ -1,0 +1,41 @@
+
+# Function to load Homebrew environment
+loadHomebrew() {
+    if command -v brew &>/dev/null; then
+        eval "$(/opt/homebrew/bin/brew shellenv)" 2>/dev/null || :
+        echo "Homebrew environment loaded."
+    else
+        echo "Homebrew not found."
+    fi
+}
+
+# Add a directory to the front of the PATH if it is not already there
+addToPathFront() {
+    if [[ -d "$1" ]]; then
+        # Check if the directory is already in the PATH
+        if [[ ":$PATH:" != *":$1:"* ]]; then
+            export PATH="$1:$PATH"
+            echo "Added $1 to the front of PATH."
+        else
+            echo "$1 is already in the PATH."
+        fi
+    else
+        echo "Directory $1 does not exist."
+    fi
+}
+
+# Function to check for ~/.orbstack directory and source init.zsh if present
+loadOrbstack() {
+    if [[ -d "$HOME/.orbstack" ]]; then
+        source "$HOME/.orbstack/shell/init.zsh" 2>/dev/null || :
+        echo "Orbstack environment loaded."
+    else
+        echo "Orbstack directory not found."
+    fi
+}
+
+loadOrbstack
+addToPathFront $HOME/.dotfiles/scripts/bin
+
+# Where should I put you?
+bindkey -s ^f "tmux-sessionizer\n"
