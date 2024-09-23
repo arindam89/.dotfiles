@@ -10,3 +10,14 @@ This repo contains things which I install to setup my development environment an
 
 ## GNU Stow 
 This repo is done keeping GNU Stow in mind.
+
+## Best CLI Tools which is needed
+
+```
+tmux
+stow
+nvim
+bat
+tldr
+cht.sh
+```
