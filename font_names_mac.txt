@@ -1,3 +1,6 @@
+ // Command to get font names: MacOS
+ // `system_profiler -json SPFontsDataType | grep \"family | sort | uniq`
+ // End of command
           "family" : ".Al Bayan PUA",
           "family" : ".Al Nile PUA",
           "family" : ".Al Tarikh PUA",
