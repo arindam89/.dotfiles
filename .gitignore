@@ -33,3 +33,7 @@
 
 # VS Code Settings
 .vscode/*
+
+# Karabiner Node Modules
+karabiner/**/node_modules
+
