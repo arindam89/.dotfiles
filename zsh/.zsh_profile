@@ -39,4 +39,5 @@ addToPathFront $HOME/.dotfiles/scripts/bin
 
 # Where should I put you?
 bindkey -s ^f "tmux-sessionizer\n"
+bindkey -s ^g "lazygit\n"
 
