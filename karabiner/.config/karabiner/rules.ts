@@ -61,21 +61,9 @@ const rules: KarabinerRules[] = [
     ),  
     s: app("Slack"),
     n: app("Notion"),
-    g: app("Google Chrome"),
+    c: app("Google Chrome"),
     v: app("Visual Studio Code"),
-
-    // c = Musi*c* which isn't "m" because we want it to be on the left hand
-    c: {
-      p: {
-        to: [{ key_code: "play_or_pause" }],
-      },
-      n: {
-        to: [{ key_code: "fastforward" }],
-      },
-      b: {
-        to: [{ key_code: "rewind" }],
-      },
-    },
+    a: app("iTerm"),
   }),
 ];
 
