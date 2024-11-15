@@ -13,7 +13,8 @@ after-login-command = []
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
-    'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0'
+    'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0',
+    #'exec ~/.config/aerospace/open_and_move_apps.sh',
 ]
 
 # Start AeroSpace at login
@@ -44,8 +45,8 @@ key-mapping.preset = 'qwerty'
 # Drop it from your config, if you don't like this behavior
 # See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
-on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
-on-focus-changed = "move-mouse window-lazy-center"
+# on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+# on-focus-changed = "move-mouse window-lazy-center"
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
@@ -118,6 +119,7 @@ alt-shift-k = 'move up'
 alt-shift-l = 'move right'
 # Hack for main mode join
 alt-esc = ['join-with right', 'layout accordion horizontal vertical']
+alt-r = ['flatten-workspace-tree', 'mode main'] # reset layout
 
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
@@ -132,8 +134,8 @@ alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
 alt-b = 'workspace B'
 alt-c = 'workspace C'
-alt-e = 'workspace E'
-alt-m = 'workspace M'
+alt-z = 'workspace Z'
+alt-x = 'workspace X'
 alt-n = 'workspace N'
 alt-t = 'workspace T'
 alt-v = 'workspace V'
@@ -150,21 +152,21 @@ alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
 alt-shift-b = 'move-node-to-workspace B'
 alt-shift-c = 'move-node-to-workspace C'
-alt-shift-e = 'move-node-to-workspace E'
-alt-shift-m = 'move-node-to-workspace M'
+alt-shift-z = 'move-node-to-workspace Z'
+alt-shift-x = 'move-node-to-workspace X'
 alt-shift-n = 'move-node-to-workspace N'
 alt-shift-t = 'move-node-to-workspace T'
 alt-shift-v = 'move-node-to-workspace V'
 
-alt-shift-f = 'fullscreen'
+alt-f = 'fullscreen'
+alt-shift-f = ['layout floating tiling']
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#mode
-alt-shift-semicolon = 'mode service'
+
 
 alt-shift-r = 'mode resize'
 
@@ -183,6 +185,8 @@ equal = 'resize smart +50'
 enter = 'mode main'
 esc = 'mode main'
 
+# See: https://nikitabobko.github.io/AeroSpace/commands#mode
+alt-shift-semicolon = 'mode service'
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
@@ -197,10 +201,72 @@ alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
-# [[on-window-detected]]
-# if.app-id = 'com.github.wez.wezterm'
-# run = "move-node-to-workspace T"
+[[on-window-detected]]
+if.app-id = 'com.github.wez.wezterm'
+run = "move-node-to-workspace 4"
 
-# [[on-window-detected]]
-# if.app-id = 'com.google.Chrome'
-# run = "move-node-to-workspace B"
+# Workspace 1: General
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = "move-node-to-workspace 1"
+
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = "move-node-to-workspace 1"
+
+# Workspace 2: Coding
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = "move-node-to-workspace 2"
+
+[[on-window-detected]]
+if.app-id = 'com.googlecode.iterm2'
+run = "move-node-to-workspace 2"
+
+# Workspace 3: AI
+
+[[on-window-detected]]
+if.app-id = 'com.openai.chat'
+run = "move-node-to-workspace 3"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari'
+run = "move-node-to-workspace 3"
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome.canary'
+run = "move-node-to-workspace 3"
+
+
+# Workspace 4: Personal Coding
+
+[[on-window-detected]]
+# Cursor
+if.app-id = 'com.todesktop.230313mzl4w4u92'
+run = "move-node-to-workspace 4"
+
+[[on-window-detected]]
+# VSCode Insiders
+if.app-id = 'com.microsoft.VSCodeInsiders'
+run = "move-node-to-workspace 4"
+
+# Workspace 5: Youtube and Downloads
+
+
+# 4K Video Downloader Plus
+# To get the app id, run:
+# osascript -e 'id of app "4k Video Downloader+"'
+[[on-window-detected]]
+if.app-id = 'com.openmedia.4kvideodownloaderplus'
+run = "move-node-to-workspace B"
+
+[[on-window-detected]]
+if.app-id = 'notion.id'
+run = "move-node-to-workspace C"
+
+[[on-window-detected]]
+# Chrome Canary Youtube App
+if.app-id = 'com.google.Chrome.canary.app.agimnkijcaahngcdmfeangaknmldooml'
+run = "move-node-to-workspace C"
