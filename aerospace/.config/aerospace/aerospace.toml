@@ -132,7 +132,13 @@ alt-6 = 'workspace 6'
 alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
-alt-b = 'workspace B'
+alt-q = 'workspace Q'
+alt-w = 'workspace W'
+alt-a = 'workspace A'
+alt-s = 'workspace S'
+alt-d = 'workspace D'
+alt-e = 'workspace E'
+alt-g = 'workspace G'
 alt-c = 'workspace C'
 alt-z = 'workspace Z'
 alt-x = 'workspace X'
@@ -157,6 +163,12 @@ alt-shift-x = 'move-node-to-workspace X'
 alt-shift-n = 'move-node-to-workspace N'
 alt-shift-t = 'move-node-to-workspace T'
 alt-shift-v = 'move-node-to-workspace V'
+alt-shift-q = 'move-node-to-workspace Q'
+alt-shift-w = 'move-node-to-workspace W'
+alt-shift-a = 'move-node-to-workspace A'
+alt-shift-s = 'move-node-to-workspace S'
+alt-shift-d = 'move-node-to-workspace D'
+alt-shift-e = 'move-node-to-workspace E'
 
 alt-f = 'fullscreen'
 alt-shift-f = ['layout floating tiling']
@@ -247,6 +259,12 @@ run = "move-node-to-workspace 3"
 # Cursor
 if.app-id = 'com.todesktop.230313mzl4w4u92'
 run = "move-node-to-workspace Z"
+
+# WezTerm
+[[on-window-detected]]
+if.app-id = 'com.github.wez.wezterm'
+run = "move-node-to-workspace Z"
+
 
 [[on-window-detected]]
 # VSCode Insiders
