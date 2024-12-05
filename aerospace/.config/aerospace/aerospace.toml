@@ -296,13 +296,9 @@ if.app-id = 'com.apple.Preview'
 run = ['layout floating']
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Finder'
+if.app-id = 'com.apple.finder'
 run = ['layout floating']
 
 [[on-window-detected]]
 if.app-id = 'dev.kdrag0n.MacVirtManager'
-run = ['layout floating']
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Finder1'
 run = ['layout floating']
