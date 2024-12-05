@@ -27,7 +27,7 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
 # The 'accordion-padding' specifies the size of accordion padding
 # You can set 0 to disable the padding feature
-accordion-padding = 10
+accordion-padding = 5
 
 # Possible values: tiles|accordion
 default-root-container-layout = 'tiles'
@@ -103,7 +103,6 @@ outer.right =      5
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
 alt-backslash = 'layout accordion horizontal vertical'
-
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 alt-h = 'focus left'
 alt-j = 'focus down'
@@ -117,6 +116,7 @@ alt-shift-h = 'move left'
 alt-shift-j = 'move down'
 alt-shift-k = 'move up'
 alt-shift-l = 'move right'
+
 # Hack for main mode join
 alt-esc = ['join-with right', 'layout accordion horizontal vertical']
 alt-r = ['flatten-workspace-tree', 'mode main'] # reset layout
@@ -137,7 +137,6 @@ alt-w = 'workspace W'
 alt-a = 'workspace A'
 alt-s = 'workspace S'
 alt-d = 'workspace D'
-alt-e = 'workspace E'
 alt-g = 'workspace G'
 alt-c = 'workspace C'
 alt-z = 'workspace Z'
@@ -168,7 +167,6 @@ alt-shift-w = 'move-node-to-workspace W'
 alt-shift-a = 'move-node-to-workspace A'
 alt-shift-s = 'move-node-to-workspace S'
 alt-shift-d = 'move-node-to-workspace D'
-alt-shift-e = 'move-node-to-workspace E'
 
 alt-f = 'fullscreen'
 alt-shift-f = ['layout floating tiling']
@@ -178,8 +176,31 @@ alt-tab = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
+alt-e = 'mode resize'
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-alt-shift-semicolon = 'mode service'
+alt-semicolon = 'mode service'
+
+[mode.resize.binding]
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+b = 'balance-sizes'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#resize
+minus = 'resize smart -50'
+equal = 'resize smart +50'
+
+enter = 'mode main'
+esc = 'mode main'
+
+alt-h = ['join-with left', 'layout accordion horizontal vertical', 'mode main']
+alt-j = ['join-with down', 'layout accordion horizontal vertical', 'mode main']
+alt-k = ['join-with up', 'layout accordion horizontal vertical', 'mode main']
+alt-l = ['join-with right', 'layout accordion horizontal vertical', 'mode main']
+
+
+
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
@@ -190,29 +211,7 @@ f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling
 backspace = ['close-all-windows-but-current', 'mode main']
 
 
-alt-shift-r = 'mode resize'
 
-[mode.resize.binding]
-h = 'resize width -50'
-j = 'resize height +50'
-k = 'resize height -50'
-l = 'resize width +50'
-b = 'balance-sizes'
-
-
-# See: https://nikitabobko.github.io/AeroSpace/commands#resize
-minus = 'resize smart -50'
-equal = 'resize smart +50'
-
-enter = 'mode main'
-esc = 'mode main'
-
-
-
-alt-shift-h = ['join-with left', 'mode main']
-alt-shift-j = ['join-with down', 'mode main']
-alt-shift-k = ['join-with up', 'mode main']
-alt-shift-l = ['join-with right', 'mode main']
 
 
 
