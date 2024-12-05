@@ -214,9 +214,7 @@ alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
-[[on-window-detected]]
-if.app-id = 'com.github.wez.wezterm'
-run = "move-node-to-workspace 4"
+
 
 # Workspace 1: General
 
@@ -238,45 +236,50 @@ run = "move-node-to-workspace 2"
 if.app-id = 'com.googlecode.iterm2'
 run = "move-node-to-workspace 2"
 
-# Workspace 3: AI
-
-[[on-window-detected]]
-if.app-id = 'com.openai.chat'
-run = "move-node-to-workspace 3"
+# Workspace Z: Personal Browser
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Safari'
-run = "move-node-to-workspace 3"
+run = "move-node-to-workspace Z"
 
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome.canary'
-run = "move-node-to-workspace 3"
+run = "move-node-to-workspace Z"
 
 
-# Workspace 4: Personal Coding
+# Workspace A: Personal Coding A
 
 [[on-window-detected]]
 # Cursor
 if.app-id = 'com.todesktop.230313mzl4w4u92'
-run = "move-node-to-workspace Z"
+run = "move-node-to-workspace A"
 
 # WezTerm
 [[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
-run = "move-node-to-workspace Z"
+run = "move-node-to-workspace A"
 
+
+
+# Workspace S: Personal Coding B
 
 [[on-window-detected]]
 # VSCode Insiders
 if.app-id = 'com.microsoft.VSCodeInsiders'
-run = "move-node-to-workspace 4"
+run = "move-node-to-workspace S"
 
-# 4K Video Downloader Plus
-# To get the app id, run:
-# osascript -e 'id of app "4k Video Downloader+"'
+# Windsurf
 [[on-window-detected]]
-if.app-id = 'com.openmedia.4kvideodownloaderplus'
-run = "move-node-to-workspace C"
+if.app-id = 'com.exafunction.windsurf'
+run = "move-node-to-workspace S"
+
+[[on-window-detected]]
+if.app-id = 'dev.warp.Warp-Stable'
+run = "move-node-to-workspace S"
+
+
+
+# Workspace X: Note taking
 
 [[on-window-detected]]
 if.app-id = 'notion.id'
@@ -286,10 +289,7 @@ run = "move-node-to-workspace X"
 if.app-id = 'md.obsidian'
 run = "move-node-to-workspace X"
 
-[[on-window-detected]]
-# Chrome Canary Youtube App
-if.app-id = 'com.google.Chrome.canary.app.agimnkijcaahngcdmfeangaknmldooml'
-run = "move-node-to-workspace C"
+# Floating windows
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Preview'
@@ -300,5 +300,21 @@ if.app-id = 'com.apple.finder'
 run = ['layout floating']
 
 [[on-window-detected]]
-if.app-id = 'dev.kdrag0n.MacVirtManager'
+if.app-id = 'dev.kdrag0n.MacVirt'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.openai.chat'
+run = ['layout floating']
+
+[[on-window-detected]]
+# Chrome Canary Youtube App
+if.app-id = 'com.google.Chrome.canary.app.agimnkijcaahngcdmfeangaknmldooml'
+run = ['layout floating']
+
+# 4K Video Downloader Plus
+# To get the app id, run:
+# osascript -e 'id of app "4k Video Downloader+"'
+[[on-window-detected]]
+if.app-id = 'com.openmedia.4kvideodownloaderplus'
 run = ['layout floating']
