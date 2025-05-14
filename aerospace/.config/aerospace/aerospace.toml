@@ -77,6 +77,9 @@ outer.right =      5
 9 = 'secondary'
 A = 'secondary'
 S = 'secondary'
+Z = 'tertiary'
+X = 'tertiary'
+
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -211,16 +214,13 @@ backspace = ['close-all-windows-but-current', 'mode main']
 
 
 
-
+# To get the app id for an app, run:
+# osascript -e 'id of app "<app name>"'
 
 # Workspace 1: General
 
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome'
-run = "move-node-to-workspace 1"
-
-[[on-window-detected]]
-if.app-id = 'com.tinyspeck.slackmacgap'
 run = "move-node-to-workspace 1"
 
 # Workspace 2: Coding
@@ -233,15 +233,15 @@ run = "move-node-to-workspace 2"
 if.app-id = 'com.googlecode.iterm2'
 run = "move-node-to-workspace 2"
 
-# Workspace Z: Personal Browser
+# Workspace 3: Personal Browser
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Safari'
-run = "move-node-to-workspace Z"
+run = "move-node-to-workspace 3"
 
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome.canary'
-run = "move-node-to-workspace Z"
+run = "move-node-to-workspace 3"
 
 
 # Workspace A: Personal Coding A
@@ -255,7 +255,6 @@ run = "move-node-to-workspace A"
 [[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
 run = "move-node-to-workspace A"
-
 
 
 # Workspace S: Personal Coding B
@@ -275,9 +274,13 @@ if.app-id = 'dev.warp.Warp-Stable'
 run = "move-node-to-workspace S"
 
 
+# Workspace Z: Slack
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = "move-node-to-workspace Z"
+
 
 # Workspace X: Note taking
-
 [[on-window-detected]]
 if.app-id = 'notion.id'
 run = "move-node-to-workspace X"
@@ -285,6 +288,28 @@ run = "move-node-to-workspace X"
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
 run = "move-node-to-workspace X"
+
+
+# Workspace D: For Design
+[[on-window-detected]]
+if.app-id = 'com.figma.Desktop'
+run = "move-node-to-workspace D"
+
+[[on-window-detected]]
+if.app-id = 'com.canva.CanvaDesktop'
+run = "move-node-to-workspace D"
+
+# Workspace S: ChatGPT and 4K Video Downloader Plus
+
+[[on-window-detected]]
+if.app-id = 'com.openai.chat'
+run = ['layout floating', 'move-node-to-workspace S']
+
+# 4K Video Downloader Plus
+
+[[on-window-detected]]
+if.app-id = 'com.openmedia.4kvideodownloaderplus'
+run = ['layout floating', 'move-node-to-workspace S']
 
 # Floating windows
 
@@ -309,13 +334,6 @@ run = ['layout floating']
 if.app-id = 'com.google.Chrome.canary.app.agimnkijcaahngcdmfeangaknmldooml'
 run = ['layout floating']
 
-# 4K Video Downloader Plus
-# To get the app id, run:
-# osascript -e 'id of app "4k Video Downloader+"'
-[[on-window-detected]]
-if.app-id = 'com.openmedia.4kvideodownloaderplus'
-run = ['layout floating']
-
 [[on-window-detected]]
 # Floating window for Google Meet
 if.window-title-regex-substring = 'Meet'
@@ -324,3 +342,10 @@ run = ['layout floating']
 [[on-window-detected]]
 if.app-id = 'com.torusknot.SourceTreeNotMAS'
 run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'ai.krisp.krispMac'
+run = ['layout floating']
+
+
+
